@@ -34,6 +34,15 @@ configurar el env : aqui es dodne configuramos las variables de entorno aqui es 
                     se crea el directorio a la misma altura que lib
                     creacmos tambien .env.template se deja guia en el readme
 
+configurar paquetes de manejo de variables de entorno:  ejem. flutter_dotenv 
+                    se instala dependencia flutter_dotenv
+                    se pone en assets de yaml
+                    se importa en el main
+                    HACER EL MAIN ASINCRONO
+
+configurar constantes de entorno : en config crear directorio constansts crear archivo environment.dart ahi creamos la clase con las 
+                            variables 
+
 
 
 
