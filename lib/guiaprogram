@@ -30,6 +30,9 @@ configurar repositories: es la misma clase abstracta de datasource la diferenria
                         (datasource es el origen y repository es quien llama ese origen)
 
 
+configurar el env : aqui es dodne configuramos las variables de entorno aqui es donde comienza el consumo de los endpoints
+                    se crea el directorio a la misma altura que lib
+                    creacmos tambien .env.template
 
 
 
