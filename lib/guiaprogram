@@ -1,0 +1,37 @@
+
+ARQUITECTURA:
+
+lib
+    config
+        router
+            app_router.dart
+        theme
+
+    domain
+        datasource
+        entities
+        repositories
+
+
+
+
+
+GUIA:
+
+* configurar router en el app_router.dart y configurar el llamado desde al main
+
+EN DOMAIN:
+configurar entities: es la informacion que vamos a utilizar para manejar mi aplicacion , AQUI SE DEFINA LA ESTRUCUTURA DE DATOS DE MI APLICAION
+
+configurar datasource: definimos como quiero que sea mi origen de DATOS (aqui no se definen las implementaciones)
+                        debe ser abstracta porque no vamos  crear instancias de ella y definimos los metodos para llamar la data
+
+configurar repositories: es la misma clase abstracta de datasource la diferenria  es que el repository es quien va a llamar el datasource
+                        (datasource es el origen y repository es quien llama ese origen)
+
+
+
+
+
+
+
