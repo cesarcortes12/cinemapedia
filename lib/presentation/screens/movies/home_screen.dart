@@ -10,11 +10,11 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        //esto es una prueba para saber si tenemos la variable de entorno en toda nuestra app solo es imprimirla
-        child: Text(Enviroment
-            .theMovieDbKey), //y esto viene de nuestro archivo de constnantes
-      ),
+      body: Placeholder(
+          //esto es una prueba para saber si tenemos la variable de entorno en toda nuestra app solo es imprimirla
+          //child: Text(Enviroment
+          //   .theMovieDbKey), //y esto viene de nuestro archivo de constnantes
+          ),
     );
   }
 }

@@ -6,12 +6,22 @@ lib
         router
             app_router.dart
         theme
+        constants
 
     domain
         datasource
         entities
         repositories
 
+    infraestruture
+        datasources
+        models
+        mappers
+        repositories
+
+    presentation
+        screens
+        providers
 
 
 
@@ -43,7 +53,57 @@ configurar paquetes de manejo de variables de entorno:  ejem. flutter_dotenv
 configurar constantes de entorno : en config crear directorio constansts crear archivo environment.dart ahi creamos la clase con las 
                             variables 
 
+crear directorio infraestruture a la altura de domain
+
+crear directorio datasources dentro de infraestruture
+
+
+configurar e implementar el datasource en el infrastructe: crear el archivo en infraestruture OJO UN DATASOURCE POR CADA INTERACCION
+                 en este caso uno para themoviesDb
+
+EN ESTE PUNT INICIA EL PROCESO PARA PETICIONES HTTP
+
+instalar dio
+
+en el datasource lo implementamos creando una instancia de dio y definiendo los parametros para que sea un cliente http de la pagina que queremos
+y en el metodo hacemos la implementacion endonde ya le pasamos la peticion 
+tener en cuenta lo que regresa esa respuesta puede contener mas cosas de lo que necesitamos entonces hay que convertirla procesarla y mappearla tomar
+la data y crear nuestra entidad
+
+
+* siempre que llegue un json utilicemos quicktype para convertirlo a dart
+
+crear directorio models a la altura de datasources, cada archivo es un modelo para cada  datasource  Y ahi se pega lo que se convierte a dart desde quicktype
+*NOTA*:  en la infraestruture cuando creamos modelos estos tienen la estructura de como llega de la api y tiene el metodo para
+         convertirlo a nuestro modelo . *ojo* cuando viene un arreglo de objetos entonces se debe hacer uno para que  el arreglo sea 
+         mapeado y otro para que los objetos dentro del arreglo sean mappeados
+
+
+creacion directorio  mappers en infraestructure:  el mapper lee diferentes modelos y crea la entidad este mapper en este caso
+se llama movie_mappper
+
+el objetivo del themoviedb_datasource es poder leer esa respuesta y poder mappearla y regresar un listado (pero no lo hace directamente , lo
+hace es por medio de los modelos y los mapeers que tenemos definidos) en este caso como hay un arreglo de objetos que contiene otros objetos utilizamos para hacer 
+un primer mappeo el  MovieDbResponse este al hacer el mapeo se encuntra con otro arreglo que con tiene la descripcion de cada 
+pelicula entonces vamos con el segundo mapeo  (a este le tenemos  creado el metodo movieMapper) y este nos regresa una lista de peliculas de acuerdo a nuestra entidad
 
 
 
+implementacion del repository en la infraestructure: 
 
+creamos el directorio en infraestructure repository y el archivo repository_impl , aqui mandamos a llamar el datasource y el datasource manda a llamar al getNowPlaying
+NOTA: recordar que cunado se crea una implementacion para escribir el override es clic derecho y se crea el archivo
+
+
+PROVIDERS
+
+crear directorio providers en la capa de presentacion
+crear directorio movies y adentro el movies_repository_provider (este lo que va a hacer es crear la isntancia del movie_repository_imp  )
+    es el que va a proveer el repositorio
+
+
+instalamos el gestor de estado flutter_riverpod la idea es tener nuestro movie_repository_impl de manera global para que podamos
+tener acceso a esa informacio ndesde cualquier otro provider para esto en el main en el run app ponemos providerScope 
+el provider es quien va a contener la referencia a todos los providers de riverpod 
+
+en movies_repository_provider creamos la primera instancia del movie_repository_imp
