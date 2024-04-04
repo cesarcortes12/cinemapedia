@@ -22,6 +22,13 @@ lib
     presentation
         screens
         providers
+            movies
+                movies_providers
+        widgets
+            shared
+
+
+
 
 
 
@@ -107,3 +114,17 @@ tener acceso a esa informacio ndesde cualquier otro provider para esto en el mai
 el provider es quien va a contener la referencia a todos los providers de riverpod 
 
 en movies_repository_provider creamos la primera instancia del movie_repository_imp
+
+PROVIDER Y NOTIFIER
+
+presentation/mproviders/movies aqui se crea movies_providers este va a tener los providers que vamos a utlizar pueden ser varios
+    adentro creamos el notifier que es un proveedor de estado que notifica su cambio , y su objetivo es que proporcione el listado (clase 182 curso)
+
+nota : en este punto seria conveniente ver si es necesario crear archivos de barril
+
+
+*EN ESTE PUNTO YA TENEMOS NUESTRA ARQUITECTURA MONTADA Y PODEMOS IR A LA VISUAL
+
+
+-en el home_screen empezamos a realizar las modificacion em pezando por retornar un statefull widget
+revisar por que ahi hay modificaicones a los widgets por que estan ligados al fgestor de estado , ademas ya aqui renderizamos la data 
