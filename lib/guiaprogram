@@ -128,3 +128,33 @@ nota : en este punto seria conveniente ver si es necesario crear archivos de bar
 
 -en el home_screen empezamos a realizar las modificacion em pezando por retornar un statefull widget
 revisar por que ahi hay modificaicones a los widgets por que estan ligados al fgestor de estado , ademas ya aqui renderizamos la data 
+
+
+
+
+*CUSTOMSCROLLVIEW Y SLIVERS
+
+cuando tenemos un scroll y queremos agrgarle un appbar dinamico utilizamos el CustomScrollview y el SliverAppbar 
+estos dos deben trabajar en conjunto para dar funcionalidad
+
+*dentro del custom se mete el sliverAppbar y el SliverList
+*en lugar de child lo cambiamos or slivers : los slivers son widgets que trabajndo directamente con el scrollview
+*dentro de los slivers pueden llevar un sliverslist que pide un delagate: el delegate es la funcion que nos va aservir para crear los slivers que van a ir dentro del listview  (ver el homeScreen)
+
+
+
+
+
+
+ *PETICIONES HTTP
+ cuando tenemmos la estreucutra ya montada entonces ya los endpoints se consumen mas facilmente 
+ comensamos definiendo el motedo que viene desde la api enel dominio en el datasource y en el repositorio para hacer la implementacion (clase 200 ) en dominio no se hace nada mas
+ en infrestrutura hacemos esas implementaciones en el datasource es ahi donde esta el endpoint
+ luego en el repositorio de la infrestrucuta implementamos tambien 
+
+con esto quedan las abstracciones e implementaciones listas para manadarlas a llamar y para esto
+vamos a presentacion y en los providers creamos un nuevo provider para ese endpoint  
+NOTA: con riverpod si se pueden tener varias instancias de la misma clase de provider pero solo con provider no 
+
+
+lluego de esto lo podemos mostrar
